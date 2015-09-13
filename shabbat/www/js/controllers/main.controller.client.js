@@ -39,6 +39,15 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
     return pathString + fileName;
   };
 
+
+  // Shake listener
+  // Start watching for shake gestures and call "onShake"
+  // with a shake sensitivity of 40 (optional, default 30)
+  shake.startWatch($scope.playSequence(), 30 /*, onError */);
+
+  // Stop watching for shake gestures
+  //shake.stopWatch();
+
   // Misc functions
   var toggleColors = function(){
     $scope.fontColor = 'white';
