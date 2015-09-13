@@ -1,7 +1,7 @@
 {
-  "name": "shabbat",
+  "name": "שבת היום",
   "version": "1.0.0",
-  "description": "shabbat: An Ionic project",
+  "description": "שבת היום!",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^1.3.3",
