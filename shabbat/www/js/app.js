@@ -9,12 +9,12 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
-      if(window.cordova && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      }
-      if(window.StatusBar) {
-        StatusBar.styleDefault();
-      }
+      //if(window.cordova && window.cordova.plugins.Keyboard) {
+      //  cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      //}
+      //if(window.StatusBar) {
+      //  StatusBar.styleDefault();
+      //}
 
 
       // AdMob section
@@ -40,7 +40,7 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
 
       if(AdMob) AdMob.createBanner( {
         adId: admobid.banner,
-        position: AdMob.AD_POSITION.TOP_CENTER,
+        position: AdMob.AD_POSITION.BOTTOM_CENTER,
         autoShow: true } );
     });
   });
