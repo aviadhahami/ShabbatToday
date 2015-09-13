@@ -20,19 +20,19 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
       // AdMob section
 
 
-      //if( ionic.Platform.isAndroid() )  {
-      //  admobid = { // for Android
-      //    banner: 'ca-app-pub-4975922438318176/8922918248'
-      //  };
-      //
-      //  if(AdMob)
-      //    AdMob.createBanner(
-      //      {
-      //        adId:admobid.banner,
-      //        position:AdMob.AD_POSITION.BOTTOM_CENTER,
-      //        autoShow:true
-      //      }
-      //    );
-      //}
+      if( ionic.Platform.isAndroid() )  {
+        admobid = { // for Android
+          banner: 'ca-app-pub-4975922438318176/8922918248'
+        };
+
+        if(AdMob)
+          AdMob.createBanner(
+            {
+              adId:admobid.banner,
+              position:AdMob.AD_POSITION.BOTTOM_CENTER,
+              autoShow:true
+            }
+          );
+      }
     });
   });
