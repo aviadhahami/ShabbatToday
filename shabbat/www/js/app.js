@@ -19,20 +19,28 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
 
       // AdMob section
 
-
-      if( ionic.Platform.isAndroid() )  {
-        admobid = { // for Android
-          banner: 'ca-app-pub-4975922438318176/8922918248'
+      // select the right Ad Id according to platform
+      var admobid = {};
+      if( /(android)/i.test(navigator.userAgent) ) { // for android
+        admobid = {
+          banner: 'ca-app-pub-4975922438318176/8922918248', // or DFP format "/6253334/dfp_example_ad"
+          interstitial: 'ca-app-pub-xxx/yyy'
         };
-
-        if(AdMob)
-          AdMob.createBanner(
-            {
-              adId:admobid.banner,
-              position:AdMob.AD_POSITION.BOTTOM_CENTER,
-              autoShow:true
-            }
-          );
+      } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+        admobid = {
+          banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+          interstitial: 'ca-app-pub-xxx/kkk'
+        };
+      } else { // for windows phone
+        admobid = {
+          banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+          interstitial: 'ca-app-pub-xxx/kkk'
+        };
       }
+
+      if(AdMob) AdMob.createBanner( {
+        adId: admobid.banner,
+        position: AdMob.AD_POSITION.TOP_CENTER,
+        autoShow: true } );
     });
   });
