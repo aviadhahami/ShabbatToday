@@ -1,4 +1,4 @@
-app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout) {
+app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout,$window) {
   console.log('controller running');
 
   // Setup
@@ -43,7 +43,7 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
   // Shake listener
   // Start watching for shake gestures and call "onShake"
   // with a shake sensitivity of 40 (optional, default 30)
-  shake.startWatch($scope.playSequence(), 30 /*, onError */);
+  $window.shake.startWatch($scope.playSequence(), 30 /*, onError */);
 
   // Stop watching for shake gestures
   //shake.stopWatch();
