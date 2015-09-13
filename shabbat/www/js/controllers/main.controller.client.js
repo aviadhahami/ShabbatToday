@@ -34,9 +34,17 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
 
 
   var getSoundSrc = function(){
-    var fileName = 's1.mp3';
+    var fileNames = [];
+    fileNames.push('s1.mp3');
+    fileNames.push('s2.mp3');
+    fileNames.push('s3.mp3');
+    fileNames.push('s4.mp3');
+
+    // Generate different file
+    var pos = Math.round(Math.random()+fileNames.length-1);
+
     var pathString = 'www/mp3/';
-    return pathString + fileName;
+    return pathString + fileNames[pos];
   };
 
 
