@@ -2,8 +2,8 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
   console.log('controller running');
   $scope.dayToday = '?שבת היום';
   var play = function(src) {
-    //var media = new Media(src, null, null, mediaStatusCallback);
-    //$cordovaMedia.play(media);
+    var media = new Media(src, null, null, mediaStatusCallback);
+    $cordovaMedia.play(media);
   }
 
   var mediaStatusCallback = function(status) {
