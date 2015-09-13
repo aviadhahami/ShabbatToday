@@ -1,6 +1,11 @@
 app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout) {
   console.log('controller running');
-  $scope.dayToday = '?שבת היום';
+
+
+  $scope.fontColor = 'black';
+  $scope.bgColor = 'white';
+
+
   var play = function(src) {
     var media = new Media(src, null, null, mediaStatusCallback);
     $cordovaMedia.play(media);
@@ -15,16 +20,18 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
   };
 
   $scope.playSequence = function(){
-    updateString();
-    $timeout(restoreString, 200);
+    toggleColors();
     playSound();
   };
-  var updateString = function(){
-    $scope.dayToday = '!שבת היום';
+  var toggleColors = function(){
+    $scope.fontColor = 'white';
+    $scope.bgColor = 'black';
+    $timeout(function(){
+      $scope.fontColor = 'black';
+      $scope.bgColor = 'white';
+    },100);
+
   };
-  var restoreString = function(){
-    $scope.dayToday = '?שבת היום';
-  }
   var playSound = function(){
     console.log('played sound');
     var src_string = isAndroid ? androidSourceString +getSoundSrc() : getSoundSrc();

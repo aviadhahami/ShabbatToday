@@ -30,13 +30,13 @@
 
 <ion-pane ng-controller="mainController" >
 
-  <ion-content ng-click="playSequence()" ng-style="{'background-color':'white'}">
+  <ion-content ng-click="playSequence()" ng-style="{'background-color':bgColor}">
     <div class="row responsive-sm">
-      <div class="col" ng-style="">
-        <h1 ng-style="{'text-align':'center'}" data-fittext>{{dayToday}}</h1>
+      <div class="col" ng-style="{}">
+        <h1 ng-style="{'text-align':'center','color':fontColor}" data-fittext>שבת</h1>
+        <br/>
+        <h1 ng-style="{'text-align':'center','color':fontColor}" data-fittext>היום</h1>
       </div>
-    </div>
-
     </div>
   </ion-content>
 </ion-pane>
