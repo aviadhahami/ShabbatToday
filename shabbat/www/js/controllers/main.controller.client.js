@@ -34,6 +34,8 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
 
 
   var getSoundSrc = function(){
+
+    // Sign files
     var fileNames = [];
     fileNames.push('s1.mp3');
     fileNames.push('s2.mp3');
@@ -41,9 +43,10 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
     fileNames.push('s4.mp3');
 
     // Generate different file
-    var pos = Math.round(Math.random()+fileNames.length-1);
+    var pos = Math.round(Math.random()*(fileNames.length-1));
 
     var pathString = 'www/mp3/';
+    console.log('should play '+ fileNames[pos], pos );
     return pathString + fileNames[pos];
   };
 
