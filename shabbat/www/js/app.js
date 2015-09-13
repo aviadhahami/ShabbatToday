@@ -18,26 +18,21 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
 
 
       // AdMob section
-      if(window.plugins && window.plugins.AdMob) {
-        var admob_key = device.platform == "Android" ? "pub-4975922438318176" : "IOS_PUBLISHER_KEY";
-        var admob = window.plugins.AdMob;
-        admob.createBannerView(
-          {
-            'publisherId': admob_key,
-            'adSize': admob.AD_SIZE.BANNER,
-            'bannerAtTop': false
-          },
-          function() {
-            admob.requestAd(
-              { 'isTesting': false },
-              function() {
-                admob.showAd(true);
-              },
-              function() { console.log('failed to request ad'); }
-            );
-          },
-          function() { console.log('failed to create banner view'); }
-        );
+
+
+      if( ionic.Platform.isAndroid() )  {
+        admobid = { // for Android
+          banner: 'ca-app-pub-4975922438318176/8922918248'
+        };
+
+        if(AdMob)
+          AdMob.createBanner(
+            {
+              adId:admobid.banner,
+              position:AdMob.AD_POSITION.BOTTOM_CENTER,
+              autoShow:true
+            }
+          );
       }
     });
   });
