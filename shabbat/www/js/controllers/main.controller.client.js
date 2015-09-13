@@ -29,7 +29,7 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
     $timeout(function(){
       $scope.fontColor = 'black';
       $scope.bgColor = 'white';
-    },100);
+    },200);
 
   };
   var playSound = function(){
