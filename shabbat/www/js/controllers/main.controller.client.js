@@ -43,13 +43,16 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
     fileNames.push('s4.mp3');
 
     // Generate different file
-    var pos = Math.round(Math.random()*(fileNames.length-1));
+    var pos = getRandomNumberInRange(fileNames.length)
 
     var pathString = 'www/mp3/';
     console.log('should play '+ fileNames[pos], pos );
     return pathString + fileNames[pos];
   };
 
+  var getRandomNumberInRange = function(max){
+    return Math.round(Math.random()*(max-1));
+  }
 
   // Shake listener
 

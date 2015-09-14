@@ -6,9 +6,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
 
   <title></title>
-
+  <link href='https://fonts.googleapis.com/css?family=Tinos:700&subset=hebrew,latin' rel='stylesheet' type='text/css'>
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
   <link href="css/ionic.app.css" rel="stylesheet">
@@ -32,7 +33,7 @@
 
 <ion-pane ng-controller="mainController" >
 
-  <ion-content ng-click="playSequence()" ng-style="{'background-color':bgColor}">
+  <ion-content ng-click="playSequence()" ng-style="{'background-color':bgColor,'font-family': 'Tinos'}">
     <div class="row responsive-sm">
       <div class="col" ng-style="{}">
         <h1 ng-style="{'text-align':'center','color':fontColor}" data-fittext>שבת</h1>
