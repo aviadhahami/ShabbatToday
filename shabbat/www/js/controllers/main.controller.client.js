@@ -1,7 +1,7 @@
-app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout,$cordovaDeviceMotion,$ionicPlatform,$q) {
+app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout,$cordovaDeviceMotion,$ionicPlatform,$window) {
   console.log('controller running');
 
-  count= 0;
+  var count= 0;
   // Setup
   var colorSchemes = [];
   colorSchemes.push({'bg':'#3C4049','text':'#141518'});
@@ -40,9 +40,15 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
 
   $scope.playSequence = function(){
     console.log(++count);
-
+    if (count === 10 ){
+      showAdAndReload()
+    }
     toggleColors();
     playSound();
+  };
+
+  var showAdAndReload = function(){
+    $window.location.reload();
   };
 
   var playSound = function(){
@@ -55,7 +61,7 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
   var getSoundSrc = function(){
 
     // Generate different file
-    var pos = getRandomNumberInRange(fileNames.length)
+    var pos = getRandomNumberInRange(fileNames.length);
 
     var pathString = 'www/mp3/';
     console.log('should play '+ fileNames[pos], pos );
@@ -65,9 +71,6 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
   var getRandomNumberInRange = function(max){
     return Math.round(Math.random()*(max-1));
   }
-
-  // Shake listener
-
 
   // Misc functions
   var toggleColors = function(){
