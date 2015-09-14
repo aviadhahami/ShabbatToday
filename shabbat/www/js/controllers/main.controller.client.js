@@ -1,10 +1,27 @@
-app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout,$cordovaDeviceMotion,$ionicPlatform) {
+app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$timeout,$cordovaDeviceMotion,$ionicPlatform,$q) {
   console.log('controller running');
 
+  count= 0;
   // Setup
+  var colorSchemes = [];
+  colorSchemes.push({'bg':'#3C4049','text':'#141518'});
+  colorSchemes.push({'bg':'#605E50','text':'#1F1E1B'});
+  colorSchemes.push({'bg':'#3B0F7B','text':'#2D0863'});
+  colorSchemes.push({'bg':'#29153F','text':'#6C508C'});
+  colorSchemes.push({'bg':'#133B24','text':'#46775A'});
+  colorSchemes.push({'bg':'#663726','text':'#D3A18E'});
+
   $scope.fontColor = 'black';
   $scope.bgColor = 'white';
   var androidSourceString = '/android_asset/';
+
+
+  // Sign files
+  var fileNames = [];
+  fileNames.push('s1.mp3');
+  fileNames.push('s2.mp3');
+  fileNames.push('s3.mp3');
+  fileNames.push('s4.mp3');
 
 
   // Play music related functions
@@ -22,6 +39,8 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
   };
 
   $scope.playSequence = function(){
+    console.log(++count);
+
     toggleColors();
     playSound();
   };
@@ -34,13 +53,6 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
 
 
   var getSoundSrc = function(){
-
-    // Sign files
-    var fileNames = [];
-    fileNames.push('s1.mp3');
-    fileNames.push('s2.mp3');
-    fileNames.push('s3.mp3');
-    fileNames.push('s4.mp3');
 
     // Generate different file
     var pos = getRandomNumberInRange(fileNames.length)
@@ -59,12 +71,10 @@ app.controller("mainController", function($scope, $cordovaMedia, $ionicLoading,$
 
   // Misc functions
   var toggleColors = function(){
-    $scope.fontColor = 'white';
-    $scope.bgColor = 'black';
-    $timeout(function(){
-      $scope.fontColor = 'black';
-      $scope.bgColor = 'white';
-    },200);
+    // in toggle colors
+    var randomizedColorScheme = colorSchemes[getRandomNumberInRange(colorSchemes.length)];
+    $scope.bgColor = randomizedColorScheme.bg;
+    $scope.fontColor = randomizedColorScheme.text;
   };
 
   var isAndroid = function(){

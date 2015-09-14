@@ -28,17 +28,24 @@
   <script src="js/app.js"></script>
   <script src="lib/ngFitText/src/ng-FitText.js"></script>
   <script src="js/controllers/main.controller.client.js"></script>
+
+
+  <style>
+    .headText{
+      font-family: Tinos;
+    }
+  </style>
 </head>
 <body ng-app="starter">
 
 <ion-pane ng-controller="mainController" >
 
-  <ion-content ng-click="playSequence()" ng-style="{'background-color':bgColor,'font-family': 'Tinos'}">
+  <ion-content ng-click="playSequence()" ng-style="{'background-color':bgColor}">
     <div class="row responsive-sm">
       <div class="col" ng-style="{}">
-        <h1 ng-style="{'text-align':'center','color':fontColor}" data-fittext>שבת</h1>
+        <h1 class='headText' ng-style="{'text-align':'center','color':fontColor}" data-fittext>שבת</h1>
         <br/>
-        <h1 ng-style="{'text-align':'center','color':fontColor}" data-fittext>היום</h1>
+        <h1 class='headText' ng-style="{'text-align':'center','color':fontColor}" data-fittext>היום</h1>
       </div>
     </div>
   </ion-content>

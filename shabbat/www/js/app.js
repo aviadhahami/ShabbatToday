@@ -24,7 +24,7 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
       if( /(android)/i.test(navigator.userAgent) ) { // for android
         admobid = {
           banner: 'ca-app-pub-4975922438318176/8922918248', // or DFP format "/6253334/dfp_example_ad"
-          interstitial: 'ca-app-pub-xxx/yyy'
+          interstitial: 'ca-app-pub-4975922438318176/6342725040'
         };
       } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
         admobid = {
@@ -38,9 +38,16 @@ var app = angular.module('starter', ['ionic','ngCordova','ngFitText'])
         };
       }
 
-      if(AdMob) AdMob.createBanner( {
-        adId: admobid.banner,
-        position: AdMob.AD_POSITION.BOTTOM_CENTER,
-        autoShow: true } );
+      if(AdMob) {
+        AdMob.createBanner( {
+          adId: admobid.banner,
+          position: AdMob.AD_POSITION.BOTTOM_CENTER,
+          autoShow: true } )};
+      // preppare and load ad resource in background, e.g. at begining of game level
+      if(AdMob) {
+        AdMob.prepareInterstitial( {
+          adId:admobid.interstitial,
+          autoShow:false} )
+      };
     });
   });
